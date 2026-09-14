@@ -1,152 +1,150 @@
 import { useState } from 'react';
-
-// Hardcoded Grade 9 Curriculum Flow mimicking Khan Academy structure
-const GRADE_9_CURRICULUM = {
-  unitTitle: "Unit 1: Structure and Functions of Cells",
-  lessons: [
-    { id: "L1", type: "lesson", title: "1.1 Introduction to the Cell Theory", completed: false },
-    { id: "L2", type: "lesson", title: "1.2 Types of Cells: Prokaryotic vs Eukaryotic", completed: false },
-    { id: "L3", type: "lesson", title: "1.3 Animal Cell Structures and Functions", completed: false },
-    { id: "Q1", type: "quiz", title: "⚡ Quiz 1 (Lessons 1.1 - 1.3)", completed: false, questionsCount: 5 },
-    { id: "L4", type: "lesson", title: "1.4 Plant Cell Structures and Specialized Tissues", completed: false },
-    { id: "L5", type: "lesson", title: "1.5 Cell Membrane Transport Mechanisms", completed: false },
-    { id: "UT1", type: "test", title: "🏆 Unit 1 Comprehensive Test", completed: false, questionsCount: 15 }
-  ]
-};
+import { HIGH_SCHOOL_CURRICULUM } from "./curriculumData.js/curriculumData.js";
 
 export default function App() {
-  const [currentContent, setCurrentContent] = useState(GRADE_9_CURRICULUM.lessons[0]);
-  const [completedTracks, setCompletedTracks] = useState({});
-  const [quizScore, setQuizScore] = useState(null);
+  const [selectedGrade, setSelectedGrade] = useState("Grade_10");
+  const [selectedSubject, setSelectedSubject] = useState("Mathematics");
+  
+  // Safely extract curriculum objects based on sidebar state changes
+  const targetSegment = HIGH_SCHOOL_CURRICULUM[selectedGrade]?.[selectedSubject] || {};
+  const chaptersList = targetSegment.lessons || [];
+  const unitHeader = targetSegment.unitTitle || "Chapters View";
 
-  const toggleComplete = (id) => {
-    setCompletedTracks(prev => ({ ...prev, [id]: !prev[id] }));
+  const [currentChapter, setCurrentChapter] = useState(chaptersList[0] || {});
+  const [checkedChapters, setCheckedChapters] = useState({});
+
+  const toggleChapterStatus = (id) => {
+    setCheckedChapters(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const handleQuizSubmit = (score) => {
-    setQuizScore(score);
-    if(score >= 80) {
-      setCompletedTracks(prev => ({ ...prev, [currentContent.id]: true }));
-    }
+  const handlePanelChange = (gradeKey, subjectKey) => {
+    setSelectedGrade(gradeKey);
+    setSelectedSubject(subjectKey);
+    const upgradedSegment = HIGH_SCHOOL_CURRICULUM[gradeKey]?.[subjectKey]?.lessons || [];
+    setCurrentChapter(upgradedSegment[0] || {});
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', backgroundColor: '#111827', color: '#f3f4f6', fontFamily: 'sans-serif' }}>
+    <div style={{ display: 'flex', height: '100vh', backgroundColor: '#0f172a', color: '#f8fafc', fontFamily: 'sans-serif' }}>
       
-      {/* Left Navigation Sidebar */}
-      <div style={{ width: '320px', borderRight: '1px solid #374151', padding: '20px', overflowY: 'auto' }}>
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '4px', color: '#3b82f6' }}>Ethio Matric Prep</h2>
-        <p style={{ fontSize: '12px', color: '#9ca3af', marginBottom: '20px' }}>Grade 9 Curriculum Tracker</p>
+      {/* 🧭 Control Sidebar Tab Panel */}
+      <div style={{ width: '110px', backgroundColor: '#1e293b', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px 10px', gap: '16px', borderRight: '1px solid #334155' }}>
         
-        <div style={{ fontWeight: '600', fontSize: '14px', marginBottom: '12px', color: '#e5e7eb' }}>
-          {GRADE_9_CURRICULUM.unitTitle}
+        {/* Grade Option Dropdown */}
+        <div style={{ width: '100%', marginBottom: '6px' }}>
+          <label style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 'bold', textTransform: 'uppercase', display: 'block', marginBottom: '6px', textAlign: 'center' }}>Grade Tier</label>
+          <select 
+            value={selectedGrade} 
+            onChange={(e) => handlePanelChange(e.target.value, selectedSubject)}
+            style={{ width: '100%', padding: '6px 4px', borderRadius: '4px', backgroundColor: '#334155', color: '#fff', border: 'none', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer' }}
+          >
+            <option value="Grade_9">G-9</option>
+            <option value="Grade_10">G-10</option>
+            <option value="Grade_11">G-11</option>
+            <option value="Grade_12">G-12</option>
+          </select>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'col', gap: '8px' }}>
-          {GRADE_9_CURRICULUM.lessons.map((item) => {
-            const isSelected = currentContent.id === item.id;
-            const isDone = completedTracks[item.id];
-            
-            let badgeColor = '#3b82f6'; 
-            if (item.type === 'quiz') badgeColor = '#f59e0b';
-            if (item.type === 'test') badgeColor = '#10b981';
+        <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Subjects</span>
+        
+        {/* Core Subject Pickers */}
+        {["Mathematics", "Physics", "Chemistry", "Biology", "English"].map((sub) => {
+          const isSelected = selectedSubject === sub;
+          return (
+            <button
+              key={sub}
+              onClick={() => handlePanelChange(selectedGrade, sub)}
+              style={{
+                width: '100%',
+                padding: '10px 2px',
+                borderRadius: '6px',
+                border: 'none',
+                backgroundColor: isSelected ? '#2563eb' : '#334155',
+                color: '#ffffff',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontSize: '11px',
+                textAlign: 'center',
+                transition: 'background-color 0.15s'
+              }}
+            >
+              {sub.substring(0, 4)}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* 📋 Chapter Progression Sidebar */}
+      <div style={{ width: '310px', backgroundColor: '#1e293b', padding: '20px', overflowY: 'auto', borderRight: '1px solid #334155' }}>
+        <h2 style={{ fontSize: '18px', fontWeight: 'bold', margin: '0 0 4px 0', color: '#3b82f6', textAlign: 'center' }}>Ethio Matric Engine</h2>
+        <p style={{ fontSize: '11px', color: '#64748b', margin: '0 0 20px 0', textAlign: 'center' }}>Dynamic Learning Platform</p>
+        
+        <div style={{ fontSize: '12px', fontWeight: '700', color: '#cbd5e1', marginBottom: '14px', paddingBottom: '6px', borderBottom: '1px solid #334155', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+          {selectedGrade.replace("_", " ")} - {unitHeader}
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {chaptersList.map((chapter) => {
+            const isActive = currentChapter.id === chapter.id;
+            const isCompleted = !!checkedChapters[chapter.id];
 
             return (
-              <div 
-                key={item.id}
-                onClick={() => { setCurrentContent(item); setQuizScore(null); }}
+              <div
+                key={chapter.id}
+                onClick={() => setCurrentChapter(chapter)}
                 style={{
-                  padding: '12px',
+                  padding: '14px 12px',
                   borderRadius: '6px',
+                  backgroundColor: isActive ? '#1e3a8a' : '#0f172a',
+                  border: isActive ? '1px solid #3b82f6' : '1px solid transparent',
                   cursor: 'pointer',
-                  backgroundColor: isSelected ? '#1e3a8a' : '#1f2937',
-                  border: isSelected ? '1px solid #3b82f6' : '1px solid transparent',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   transition: 'background-color 0.2s'
                 }}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '80%' }}>
-                  <span style={{ fontSize: '11px', textTransform: 'uppercase', fontWeight: 'bold', color: badgeColor }}>
-                    {item.type}
-                  </span>
-                  <span style={{ fontSize: '13px', color: '#f3f4f6', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {item.title}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', width: '85%' }}>
+                  <span style={{ fontSize: '13px', color: '#e2e8f0', lineHeight: '1.4' }}>
+                    {chapter.title}
                   </span>
                 </div>
-                <input 
-                  type="checkbox" 
-                  checked={!!isDone} 
-                  onChange={(e) => { e.stopPropagation(); toggleComplete(item.id); }}
+                <input
+                  type="checkbox"
+                  checked={isCompleted}
+                  onChange={(e) => { e.stopPropagation(); toggleChapterStatus(chapter.id); }}
                   style={{ width: '16px', height: '16px', cursor: 'pointer' }}
                 />
               </div>
             );
           })}
+          {chaptersList.length === 0 && (
+            <div style={{ fontSize: '12px', color: '#64748b', textAlign: 'center', marginTop: '20px' }}>No chapters loaded yet.</div>
+          )}
         </div>
       </div>
 
-      {/* Right Content Panel Display */}
+      {/* 🖥️ Dynamic Display Panel */}
       <div style={{ flex: 1, padding: '40px', overflowY: 'auto' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           
-          <div style={{ borderBottom: '1px solid #374151', paddingBottom: '16px', marginBottom: '24px' }}>
-            <span style={{ textTransform: 'uppercase', fontSize: '12px', fontWeight: 'bold', color: '#3b82f6', letterSpacing: '1px' }}>
-              Dashboard View / Grade 9
+          <div style={{ borderBottom: '1px solid #334155', paddingBottom: '16px', marginBottom: '24px' }}>
+            <span style={{ fontSize: '11px', textTransform: 'uppercase', fontWeight: 'bold', color: '#3b82f6', letterSpacing: '0.5px' }}>
+              Study Hub / {selectedGrade.replace("_", " ")} / {selectedSubject}
             </span>
-            <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginTop: '8px' }}>{currentContent.title}</h1>
+            <h1 style={{ fontSize: '26px', fontWeight: 'bold', margin: '8px 0 0 0' }}>
+              {currentChapter.title || "Select a Target Unit Module"}
+            </h1>
           </div>
 
-          {currentContent.type === 'lesson' && (
-            <div style={{ backgroundColor: '#1f2937', padding: '24px', borderRadius: '8px', border: '1px solid #374151' }}>
-              <div style={{ width: '100%', height: '360px', backgroundColor: '#000', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <span style={{ color: '#9ca3af' }}>📺 [ Video Resource Placeholder for {currentContent.title} ]</span>
-              </div>
-              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}>Lesson Overview</h3>
-              <p style={{ color: '#9ca3af', lineHeight: '1.6', fontSize: '15px' }}>
-                Welcome to your interactive workspace. This module contains matching lesson materials mapped strictly from the Ethiopian Grade 9 Natural Science textbook framework. Review the recorded materials above, then click the checkbox in the sidebar once you've completed this section to track your progress!
-              </p>
-              <button 
-                onClick={() => toggleComplete(currentContent.id)}
-                style={{ marginTop: '24px', backgroundColor: completedTracks[currentContent.id] ? '#dc2626' : '#2563eb', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}
-              >
-                {completedTracks[currentContent.id] ? "Mark as Incomplete" : "Mark Lesson as Complete"}
-              </button>
-            </div>
-          )}
-
-          {(currentContent.type === 'quiz' || currentContent.type === 'test') && (
-            <div style={{ backgroundColor: '#1f2937', padding: '24px', borderRadius: '8px', border: '1px solid #374151' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px' }}>Interactive Assessment Module</h3>
-              <p style={{ color: '#9ca3af', marginBottom: '20px', fontSize: '14px' }}>
-                This resource contains **{currentContent.questionsCount} multiple-choice questions** compiled from previous matric-level evaluation trends.
-              </p>
-              
-              {quizScore === null ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ border: '1px solid #374151', padding: '16px', borderRadius: '6px', backgroundColor: '#111827' }}>
-                    <p style={{ fontWeight: '500', marginBottom: '12px', fontSize: '15px' }}>Sample Question 1: Which of the following statements is a core tenet of the classical cell theory?</p>
-                    <label style={{ display: 'block', margin: '8px 0', fontSize: '14px', cursor: 'pointer' }}><input type="radio" name="sample" /> A) Cells form spontaneously out of non-living matter.</label>
-                    <label style={{ display: 'block', margin: '8px 0', fontSize: '14px', cursor: 'pointer' }}><input type="radio" name="sample" /> B) All living organisms are composed of one or more cells.</label>
-                    <label style={{ display: 'block', margin: '8px 0', fontSize: '14px', cursor: 'pointer' }}><input type="radio" name="sample" /> C) Multicellular organisms do not contain unique cells.</label>
-                  </div>
-                  <button 
-                    onClick={() => handleQuizSubmit(100)}
-                    style={{ backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '12px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontSize: '15px' }}
-                  >
-                    Submit Assessment Answers
-                  </button>
-                </div>
-              ) : (
-                <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                  <div style={{ fontSize: '48px', marginBottom: '8px' }}>🎉</div>
-                  <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: '#10b981' }}>Score: {quizScore}%</h4>
-                  <p style={{ color: '#9ca3af', marginTop: '4px', fontSize: '14px' }}>Excellent work! This assessment tier has been updated in your history ledger.</p>
-                </div>
-              )}
-            </div>
-          )}
+          <div style={{ backgroundColor: '#1e293b', padding: '30px', borderRadius: '8px', border: '1px solid #334155', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.3)' }}>
+            <h3 style={{ fontSize: '16px', fontWeight: '600', margin: '0 0 12px 0', color: '#f1f5f9' }}>
+              Active Learning Component Panel
+            </h3>
+            <p style={{ color: '#94a3b8', lineHeight: '1.7', fontSize: '14px', margin: 0 }}>
+              This structural container block handles your live workbook features. As you start your regular Grade 11 school week sessions this Thursday, we can drop matching lecture documents, active recall note stacks, and question sets right into this panel viewport display!
+            </p>
+          </div>
 
         </div>
       </div>
