@@ -1,0 +1,51 @@
+{
+  "Biology": [
+    { "year": "2005 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2005.pdf" },
+    { "year": "2012 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2012.pdf" },
+    { "year": "2013 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2013.pdf" },
+    { "year": "2014 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2014.pdf" },
+    { "year": "2015 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2015.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/Biology/Bio-2018.pdf" }
+  ],
+  "Physics": [
+    { "year": "2005 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2005.pdf" },
+    { "year": "2014 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2014.pdf" },
+    { "year": "2015 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2015.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/Physics/Phy-2018.pdf" }
+  ],
+  "Aptitude": [
+    { "year": "2014 E.C.", "path": "PAST PAPEPERS/Aptitude/Ap-2014.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/Aptitude/Ap-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/Aptitude/Ap-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/Aptitude/Ap-2018.pdf" }
+  ],
+  "Chemistry": [
+    { "year": "2005 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2005.pdf" },
+    { "year": "2013 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2013.pdf" },
+    { "year": "2014 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2014.pdf" },
+    { "year": "2015 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2015.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/Chemistry/Chem-2018.pdf" }
+  ],
+  "English": [
+    { "year": "2005 E.C.", "path": "PAST PAPEPERS/English/Eng-2005.pdf" },
+    { "year": "2013 E.C.", "path": "PAST PAPEPERS/English/Eng-2013.pdf" },
+    { "year": "2015 E.C.", "path": "PAST PAPEPERS/English/Eng-2015.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/English/Eng-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/English/Eng-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/English/Eng-2018.pdf" }
+  ],
+  "Math": [
+    { "year": "2005 E.C.", "path": "PAST PAPEPERS/Math/Math-2005.pdf" },
+    { "year": "2013 E.C.", "path": "PAST PAPEPERS/Math/Math-2013.pdf" },
+    { "year": "2014 E.C.", "path": "PAST PAPEPERS/Math/Math-2014.pdf" },
+    { "year": "2016 E.C.", "path": "PAST PAPEPERS/Math/Math-2016.pdf" },
+    { "year": "2017 E.C.", "path": "PAST PAPEPERS/Math/Math-2017.pdf" },
+    { "year": "2018 E.C.", "path": "PAST PAPEPERS/Math/Math-2018.pdf" }
+  ]
+}
