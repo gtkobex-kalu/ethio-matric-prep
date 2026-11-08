@@ -1138,25 +1138,335 @@ export const HIGH_SCHOOL_CURRICULUM = {
     Biology: {
       unitTitle: "Grade 11 Biology (New National Curriculum)",
       lessons: [
-        // ==================== UNIT 1: BIOLOGY AND TECHNOLOGY ====================
-        { id: "G11B_U1_1", type: "lesson", title: "1.1 Learning from nature" },
-        { id: "G11B_U1_2", type: "lesson", title: "1.2 Biology and technology" },
-        { id: "G11B_U1_3", type: "lesson", title: "1.3 Impacts of biology and technology on society and the natural world" },
-        { id: "G11B_U1_Q1", type: "quiz", title: "⚡ Quiz 1: Bionics & Societal Technology Impacts" },
-        { id: "G11B_U1_4", type: "lesson", title: "1.4 Ethical issues in biology" },
-        { id: "G11B_U1_REV", type: "test", title: "📝 Unit One Review Questions" },
+        {
+          id: "G11B_U1_3",
+          type: "lesson",
+          title: "1.3 Impacts of biology and technology on society and the natural world",
+          overview: "Advancements in biology and technology produce profound positive advancements alongside potential ecological and ethical risks.",
+          impact_matrix: {
+            positive_biology: [
+              "Food Security: High yielding crop cultivars, synthetic fertilizers, and disease-resistant livestock breeds.",
+              "Health & Longevity: Production of antibiotics, vaccines, and insulin via recombinant DNA technology.",
+              "Industrial Biotechnology: Microbial fermentation for foods, enzymes, biofuels, and wastewater bioremediation."
+            ],
+            negative_biology: [
+              "Biological Warfare: Development of weaponized pathogens (anthrax, botulinum toxin) threatening human populations.",
+              "Genetic Sex-Selection: Using prenatal diagnostic tools to pre-select male offspring (XY) and selectively abort female fetuses (XX), causing demographic sex-ratio imbalances.",
+              "Ecological Biohazards: Unintended release of genetically modified organisms into native wild habitats."
+            ],
+            positive_technology: [
+              "Diagnostic Imaging: Early cancer detection via CT/PET (using radioactive tracers).",
+              "Information Networks: Worldwide sharing of genetic data.",
+              "Energy Delivery: Clean solar, wind, and hydropower systems."
+            ],
+            negative_technology: [
+              "Industrial Pollution: Untreated factory effluents, smoke, and toxic chemicals contaminating waterways and air.",
+              "Environmental Depletion: Overexploitation of fossil fuels, deforestation, topsoil loss, and global climate change.",
+              "Agrochemical Toxicity: Runoff containing pesticides and synthetic fertilizers causing aquatic eutrophication."
+            ]
+          },
+          technological_subdisciplines: "Technology enables biochemistry, biophysics, bioinformatics, and biogeography. Key diagnostic tools include digital thermometers, glucometers, HCG pregnancy test strips, CT scans, and PET scans.",
+          dual_impacts: "Biological advancements offer food security and antibiotic therapies, but carry risks of bioweapons and demographic sex-ratio distortion. Technology drives medicine and transport, but causes environmental pollution and resource exhaustion."
+        },
+               {
+          id: "G11B_U1_Q1",
+          type: "quiz",
+          title: "⚡ Quiz 1: Bionics & Societal Technology Impacts (Section 1.3)",
+          questions: [
+            {
+              q: "Which of the following is a primary biological intervention used to achieve food security?",
+              opts: { A: "High-yielding crop cultivars and disease-resistant livestock", B: "Recombinant DNA insulin synthesis", C: "Weaponized pathogen deployment", D: "Prenatal diagnostic genetic engineering" },
+              ans: "A"
+            },
+            {
+              q: "What is a major negative societal impact of advanced prenatal genetic diagnostic tools?",
+              opts: { A: "Eutrophication of aquatic environments", B: "Industrial effluent accumulation", C: "Demographic sex-ratio imbalances due to selective abortion", D: "Vertical gene transfer to wild relative plants" },
+              ans: "C"
+            },
+            {
+              q: "Recombinant DNA technology has directly improved human health and longevity through the production of:",
+              opts: { A: "Antibiotics, vaccines, and synthetic insulin", B: "Synthetic chemical fertilizers", C: "Monoclonal bioremediation matrices", D: "Ionizing seed radiation protocols" },
+              ans: "A"
+            },
+            {
+              q: "Which subdiscipline of technology explicitly deals with the management and analysis of massive genetic and biological data?",
+              opts: { A: "Biophysics", B: "Bioinformatics", C: "Biogeography", D: "Biochemistry" },
+              ans: "B"
+            },
+            {
+              q: "What environmental hazard is primarily caused by agricultural runoff containing excess synthetic fertilizers?",
+              opts: { A: "Atmospheric heavy metal toxicity", B: "Decentralized plant bud mutilation", C: "Biological warfare pathogen mutation", D: "Aquatic eutrophication" },
+              ans: "D"
+            },
+            {
+              q: "Diagnostic imaging tools like CT and PET scans rely on which technological element for early cancer detection?",
+              opts: { A: "Radioactive tracers", B: "Chitinous exoskeleton frameworks", C: "Decentralized physiological nodes", D: "Induced-fit active site parameters" },
+              ans: "A"
+            },
+            {
+              q: "The use of microbial fermentation in industrial biotechnology is beneficial for:",
+              opts: { A: "Germline genetic engineering", B: "Selectively multiplying XY chromosomal pairs", C: "Clearcutting deforested biomes", D: "Biofuels, food processing, and wastewater bioremediation" },
+              ans: "D"
+            },
+            {
+              q: "Industrial pollution from factories threatens ecosystems primarily through the release of:",
+              opts: { A: "Untreated effluents, smoke, and toxic chemicals", B: "Recombinant proteins", C: "Decentralized autotrophic structures", D: "Biosynthetic tissue alternatives" },
+              ans: "A"
+            },
+            {
+              q: "Which tool is commonly used by individuals at home to evaluate a physiological parameter?",
+              opts: { A: "HCG pregnancy test strip or glucometer", B: "PET scan machine", C: "Gel electrophoresis chamber", D: "Mavis Beacon diagnostic console" },
+              ans: "A"
+            },
+            {
+              q: "Biological warfare involves the unethical deployment of:",
+              opts: { A: "Genetically modified crop seedlings", B: "Weaponized pathogens like anthrax or botulinum toxin", C: "Non-sentient computer simulated virtual models", D: "Passive self-cooling architectural frameworks" },
+              ans: "B"
+            }
+          ]
+        },
 
-        // ==================== UNIT 2: ANIMALS ====================
-        { id: "G11B_U2_1", type: "lesson", title: "2.1 Characteristics of animals" },
-        { id: "G11B_U2_2", type: "lesson", title: "2.2 Invertebrates and Vertebrates" },
-        { id: "G11B_U2_3", type: "lesson", title: "2.3 Reproduction in Animals" },
-        { id: "G11B_U2_Q1", type: "quiz", title: "⚡ Quiz 2: Animal Phylums & Metamorphosis Cycles" },
-        { id: "G11B_U2_4", type: "lesson", title: "2.4 The economic importance of animals (Insects)" },
-        { id: "G11B_U2_5", type: "lesson", title: "2.5 Animal Behavior" },
-        { id: "G11B_U2_6", type: "lesson", title: "2.6 Homeostasis in animals" },
-        { id: "G11B_U2_Q2", type: "quiz", title: "⚡ Quiz 3: Animal Ethology & Osmoregulation Systems" },
-        { id: "G11B_U2_7", type: "lesson", title: "2.7 Renowned zoologists in Ethiopia" },
-        { id: "G11B_U2_REV", type: "test", title: "📝 Unit Two Review Questions" },
+        {
+          id: "G11B_U1_4",
+          type: "lesson",
+          title: "1.4 Ethical issues in biology",
+          bioethics_definition: "The philosophical and moral study of the rightness or wrongness of applying biological knowledge, biotechnology, and medical interventions to human life, healthcare, experimental animals, and natural ecosystems.",
+          key_controversies: [
+            "Commercialization and commodification of human organs for transplantation.",
+            "Assisted reproductive technologies (surrogacy, in-vitro fertilization).",
+            "Germline genetic engineering and reproductive cloning.",
+            "Corporate patenting of living genes and indigenous seed varieties."
+          ],
+          treatment_of_plants: {
+            ecological_role: "Plants are the primary autotrophic producers that sustain all heterotrophic life on Earth.",
+            decentralized_biology: "Trees and herbaceous plants function via decentralized physiological networks without a centralized control organ or brain.",
+            unethical_practices: [
+              "Indiscriminate cutting of terminal growth buds for minor experiments.",
+              "Stripping roots, barks, or flowers for toothbrushes or informal medicines without allowing plant regeneration.",
+              "Exposing seeds or reproductive buds to destructive ionizing radiation.",
+              "Clearcutting deforestation and slash-and-burn farming destroying indigenous seedlings.",
+              "Mutilating tree canopies solely for decorative shapes."
+            ],
+            ethical_duty: "Protecting natural flora and engaging in systematic tree-planting campaigns is a universal civic and ethical responsibility ('A tree gives shade even to the axeman')."
+          },
+          treatment_of_animals: {
+            animal_sentience: "Animals are sentient organisms equipped with functional nervous systems, enabling them to experience physical pain, emotional distress, fear, and discomfort. Consequently, inflicting unnecessary suffering during biological experimentation is ethically unacceptable.",
+            three_rs_framework: [
+              { principle: "Reduction", definition: "Minimizing the total number of animals used in an experiment through optimized design and centralized data-sharing." },
+              { principle: "Refinement", definition: "Cleansing experimental protocols to eliminate pain and stress: less invasive procedures, analgesics & enriched housing." },
+              { principle: "Replacement", definition: "Substituting live vertebrate animal subjects entirely: cell/tissue cultures, in-vitro tests, & computer models." }
+            ]
+          }
+        },
+        {
+          id: "G11B_U1_Q2",
+          type: "quiz",
+          title: "⚡ Quiz 2: Bioethics & Flora/Fauna Welfare (Section 1.4)",
+          questions: [
+            {
+              q: "Why is the open environmental release of Genetically Modified Organisms (GMOs) considered an ecological biohazard?",
+              opts: { A: "It completely halts cellular respiration in autotrophs", B: "It eliminates the need for animal sentience testing", C: "It carries risks of unintended vertical gene transfer to wild relatives", D: "It prevents corporate patenting of seed varieties" },
+              ans: "C"
+            },
+            {
+              q: "Plants function as decentralized systems, meaning they:",
+              opts: { A: "Operate via physiological networks without a central coordinating brain", B: "Possess a solid ventral nerve cord matrix", C: "Rely on an axial cartilaginous framework", D: "Experience acute emotional distress and physical fear" },
+              ans: "A"
+            },
+            {
+              q: "Bioethics is explicitly defined as the study of:",
+              opts: { A: "Computer-simulated virtual cell algorithms", B: "Taxonomic classification rules for vertebrates", C: "The kinetic velocity of enzyme active sites", D: "The moral rightness or wrongness of applying biological knowledge and biotechnology" },
+              ans: "D"
+            },
+            {
+              q: "Which practice is classified as an unethical treatment of plants?",
+              opts: { A: "Systematic municipal tree-planting campaigns", B: "Stripping roots, barks, or flowers destructively without allowing regeneration", C: "Pruning dead structural branches in winter", D: "Culturing cell lines inside closed laboratory incubators" },
+              ans: "B"
+            },
+            {
+              q: "Animal sentience means that animals are biologically capable of experiencing:",
+              opts: { A: "Decentralized autotrophic carbohydrate synthesis", B: "Physical pain, emotional distress, fear, and discomfort", C: "Rigid cellulose wall division", D: "Permanent open hemocoel circulation shifts" },
+              ans: "B"
+            },
+            {
+              q: "Which of the following represents a major contemporary ethical controversy in medical biology?",
+              opts: { A: "Commercialization and commodification of human organs for transplantation", B: "Using yeast for bread production", C: "Building passive self-cooling structural models", D: "Using statistical models to decrease sample sizing" },
+              ans: "A"
+            },
+            {
+              q: "Under the Three Rs framework, 'Reduction' explicitly refers to:",
+              opts: { A: "Substituting live vertebrate subjects with computer simulations", B: "Upgrading handling methods to eliminate physical pain", C: "Minimizing the absolute number of animals used in scientific experiments", D: "Lowering the activation energy barrier of a catalytic reaction" },
+              ans: "C"
+            },
+            {
+              q: "Which action describes the principle of 'Refinement' in animal experimentation?",
+              opts: { A: "Using cultured human cell lines instead of live animals", B: "Utilizing advanced statistical layout modeling to use fewer subjects", C: "Replacing live tissue fields with synthetic organoids", D: "Cleansing protocols to eliminate pain and stress through analgesics and enriched housing" },
+              ans: "D"
+            },
+            {
+              q: "The principle of 'Replacement' is successfully achieved when a researcher uses:",
+              opts: { A: "Non-animal alternatives like cultured cell lines or virtual computer models", B: "Fewer sentient subjects via optimized data sharing", C: "Effective anesthesia during invasive structural surgeries", D: "More complex vertebrate animal species" },
+              ans: "A"
+            },
+            {
+              q: "Which of the following is considered an ethical threat to indigenous farming communities?",
+              opts: { A: "Widespread use of non-sentient alternatives", B: "Corporate patenting of living genes and indigenous seed varieties", C: "Adopting the Three Rs welfare guidelines", D: "Building passive self-cooling storage rooms" },
+              ans: "B"
+            }
+          ]
+        },
+
+        {
+          id: "G11B_U2_1",
+          type: "lesson",
+          title: "2.1 Characteristics of animals",
+          introduction: "Kingdom Animalia encompasses a vast diversity of living organisms sharing specific foundational biological characteristics.",
+          foundational_traits: [
+            "Eukaryotic Cellular Structure: Animal cells possess membrane-bound nuclei and complex cytoplasmic organelles (mitochondria, endoplasmic reticulum, Golgi apparatus) while lacking rigid cellulose cell walls and chloroplasts.",
+            "Multicellularity: Bodies are composed of specialized cells organized into tissues, organs, and physiological organ systems.",
+            "Heterotrophic Mode of Nutrition: Ingestive heterotrophs that consume organic biomass (plants, animals, fungi) synthesized by autotrophic organisms.",
+            "Motility (Active Locomotion): The ability to move independently using specialized contractile muscle tissues and nervous coordination during at least one phase of their life cycle.",
+            "Sensory Reception & Responsiveness: Possess sensory receptors and nervous systems capable of detecting environmental stimuli and coordinating rapid behavioral responses.",
+            "Cellular Respiration: Obligate aerobes utilizing oxygen (O2) to oxidize nutrient molecules within mitochondria, yielding carbon dioxide (CO2), water, and adenosine triphosphate (ATP).",
+            "Excretion of Nitrogen Wastes: Specialized excretory organs filter toxic metabolic by-products (ammonia, urea, or uric acid).",
+            "Reproduction & Embryonic Development: Primarily sexual reproduction producing haploid gametes via meiosis, followed by cleavage, blastula formation, and gastrulation.",
+            "Definite Body Symmetry: Most animals exhibit geometric structural body plans including Asymmetry (no plane of symmetry, e.g., most sponges), Radial Symmetry (body parts arranged around a central longitudinal axis, e.g., jellyfish), and Bilateral Symmetry (a single vertical longitudinal plane divides the body into symmetrical left and right halves)."
+          ],
+          taxonomic_divisions: {
+            invertebrates: "Lacking a vertebral column (~95% of all animal species). Major Phyla include Porifera, Cnidaria, Platyhelminthes, Annelida. Arthropoda Classes include Insecta (6 legs), Arachnida (8 legs), Crustacea (gills/claws), and Myriapoda (many legs).",
+            vertebrates: "Possessing a bony or cartilaginous vertebral column. Divided into Poikilothermic/Ectothermic (Fish with gills/scales, Amphibians with jelly eggs, Reptiles with leathery eggs) and Homeothermic/Endothermic (Birds with feathers, Mammals with fur/milk)."
+          }
+        },
+                {
+          id: "G11B_U2_Q1",
+          type: "quiz",
+          title: "⚡ Quiz 3: Animal Characteristics & Taxonomy (Section 2.1)",
+          questions: [
+            {
+              q: "Which cellular feature is completely missing from organisms classified under Kingdom Animalia?",
+              opts: { A: "Rigid cellulose cell wall", B: "Membrane-bound nucleus", C: "Mitochondria", D: "Golgi apparatus" },
+              ans: "A"
+            },
+            {
+              q: "Animals exhibit a heterotrophic mode of nutrition, meaning they are explicitly:",
+              opts: { A: "Autotrophic primary producers", B: "Ingestive heterotrophs consuming pre-made organic biomass", C: "Chemosynthetic environmental stabilizers", D: "Decentralized saprophytic absorbers" },
+              ans: "B"
+            },
+            {
+              q: "The embryonic development of most animals sequentially proceeds through which structural stages?",
+              opts: { A: "Notochord, vertebral division, adult molting", B: "Cleavage, blastula formation, and gastrulation", C: "Fermentation, cellular scaling, synthesis", D: "Asymmetrical splitting and structural budding" },
+              ans: "B"
+            },
+            {
+              q: "An animal body plan that cannot be divided by any plane to produce mirror halves is described as:",
+              opts: { A: "Radially symmetrical", B: "Asymmetrical", C: "Bilaterally symmetrical", D: "Decentralized" },
+              ans: "B"
+            },
+            {
+              q: "Which of the following organisms displays distinct radial symmetry?",
+              opts: { A: "A jellyfish or sea anemone", B: "An insect", C: "A sponge", D: "A human being" },
+              ans: "A"
+            },
+            {
+              q: "Approximately what percentage of all known animal species are classified as Invertebrates?",
+              opts: { A: "5%", B: "25%", C: "95%", D: "50%" },
+              ans: "C"
+            },
+            {
+              q: "Which class of Phylum Arthropoda is explicitly defined by the presence of exactly 6 legs?",
+              opts: { A: "Arachnida", B: "Crustacea", C: "Insecta", D: "Myriapoda" },
+              ans: "C"
+            },
+            {
+              q: "Organisms belonging to Class Arachnida possess how many walking legs?",
+              opts: { A: "6 legs", B: "10 legs", C: "8 legs", D: "Variable pairs" },
+              ans: "C"
+            },
+            {
+              q: "Which vertebrate group is homeothermic (warm-blooded) and possesses fur or hair?",
+              opts: { A: "Reptiles", B: "Amphibians", C: "Birds", D: "Mammals" },
+              ans: "D"
+            },
+            {
+              q: "Poikilothermic animals are distinctly characterized by:",
+              opts: { A: "Body temperatures that fluctuate with the external environment", B: "Maintaining a constant internal core temperature", C: "Lacking any nervous coordination paths", D: "Possessing an external chitinous shell framework" },
+              ans: "A"
+            }
+          ]
+        },
+
+        {
+          id: "G11B_U2_2",
+          type: "lesson",
+          title: "2.2 Invertebrates and Vertebrates",
+          comparison_matrix: [
+            { characteristic: "Vertebral Column", invertebrates: "Absent entirely.", vertebrates: "Present (axial cartilage/bone)." },
+            { characteristic: "Skeletal Architecture", invertebrates: "Soft-bodied or possessing an external chitinous exoskeleton (e.g., insects).", vertebrates: "Living internal endoskeleton divided into axial and appendicular skeletal frameworks." },
+            { characteristic: "Nervous System", invertebrates: "Solid ventral nerve cord; decentralized ganglia.", vertebrates: "Dorsal hollow nerve cord; highly developed cranial brain." },
+            { characteristic: "Circulatory System", invertebrates: "Predominantly open (blood bathes hemocoel spaces).", vertebrates: "Strictly closed; muscular ventral heart (2, 3, or 4 chambers)." },
+            { characteristic: "Respiratory System", invertebrates: "Body surface, tracheae, book lungs, or simple gills.", vertebrates: "Specialized internal gills or high surface-area lungs." },
+            { characteristic: "Body Symmetry", invertebrates: "Asymmetrical, radial, or bilateral.", vertebrates: "Exclusively bilateral symmetry." },
+            { characteristic: "Thermoregulation", invertebrates: "Exclusively poikilothermic (cold-blooded ectotherms).", vertebrates: "Poikilothermic (fish/amphibians/reptiles) or homeothermic (birds and mammals)." }
+          ],
+          chordate_relationship: "All vertebrates are members of the Phylum Chordata, defined by possessing a notochord, a dorsal hollow nerve cord, pharyngeal gill slits, and a post-anal tail at some stage of life. In vertebrates, the embryonic notochord is replaced during development by a segmented bony or cartilaginous vertebral column. Non-vertebrate chordates (e.g., tunicates and lancelets) retain the notochord without forming vertebrae; hence, all vertebrates are chordates, but not all chordates are vertebrates."
+        },
+        {
+          id: "G11B_U2_Q2",
+          type: "quiz",
+          title: "⚡ Quiz 4: Invertebrates vs. Vertebrates Anatomy (Section 2.2)",
+          questions: [
+            {
+              q: "What structural feature separates vertebrates from all invertebrates?",
+              opts: { A: "A dorsal hollow nerve cord", B: "Bilateral body symmetry", C: "A bony or cartilaginous vertebral column", D: "A closed circulatory matrix" },
+              ans: "C"
+            },
+            {
+              q: "The skeletal system of an insect is an exoskeleton composed primarily of:",
+              opts: { A: "Cartilage", B: "Cellulose", C: "Chitin", D: "Calcium carbonate" },
+              ans: "C"
+            },
+            {
+              q: "Where is the main nerve cord positioned within the body architecture of an invertebrate?",
+              opts: { A: "Ventral position", B: "Dorsal position", C: "Lateral position", D: "Central brain core only" },
+              ans: "A"
+            },
+            {
+              q: "Vertebrates possess a highly efficient circulatory configuration characterized as:",
+              opts: { A: "A completely open hemocoel system", B: "A strictly closed system powered by a muscular ventral heart", C: "A decentralized open vascular grid", D: "A system relying entirely on body wall diffusion" },
+              ans: "B"
+            },
+            {
+              q: "Which structural feature is shared by all members of the Phylum Chordata during development?",
+              opts: { A: "A multi-chambered ventral heart", B: "A chitinous protective exoskeleton", C: "An external layer of scales or feathers", D: "A notochord, dorsal hollow nerve cord, and pharyngeal slits" },
+              ans: "D"
+            },
+            {
+              q: "During vertebrate development, what happens to the embryonic notochord?",
+              opts: { A: "It turns into the dorsal brain container", B: "It disappears entirely without a replacement structure", C: "It migrates to form the ventral nerve matrix", D: "It is replaced by a segmented bony or cartilaginous vertebral column" },
+              ans: "D"
+            },
+            {
+              q: "Why are non-vertebrate chordates like lancelets not classified as true vertebrates?",
+              opts: { A: "They display complete structural asymmetry", B: "They do not possess a hollow nerve cord", C: "They retain their notochord throughout life without forming vertebrae", D: "They rely entirely on standard open respiration layouts" },
+              ans: "C"
+            },
+            {
+              q: "Vertebrate hearts can feature which of the following room layouts?",
+              opts: { A: "1 or 2 chambers only", B: "2, 3, or 4 chambers", C: "Decentralized muscle grids without divisions", D: "Exclusively 4 fixed chambers" },
+              ans: "B"
+            },
+            {
+              q: "Which statement correctly describes the relationship between chordates and vertebrates?",
+              opts: { A: "All vertebrates are chordates, but not all chordates are vertebrates", B: "All chordates are vertebrates, but vertebrates are not chordates", C: "Chordates and vertebrates share no taxonomic evolutionary links", D: "Vertebrates form an external subphylum completely separate from chordates" },
+              ans: "A"
+            },
+            {
+              q: "What type of respiration system is typically found in terrestrial vertebrates?",
+              opts: { A: "Tracheae lines and simple body surface walls", B: "Open book lungs bathing fluid spaces", C: "External skin diffusion without vascular support", D: "High surface-area internal lungs" },
+              ans: "D"
+            }
+          ]
+        },
 
         // ==================== UNIT 3: ENZYMES ====================
         { id: "G11B_U3_1", type: "lesson", title: "3.1 What are enzymes?" },
